@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Archita ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    background:linear-gradient(135deg,#ffb6d9,#ffcce6,#ff9dcc);
+    color:#fff;
+    text-align:center;
+}
+
+/* Pink Heart Wallpaper */
+body::before{
+    content:"❤️ 💗 💕 💖 💘 💓 ❤️ 💕 💗 💖";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    font-size:45px;
+    line-height:100px;
+    word-spacing:35px;
+    opacity:.18;
+    transform:rotate(-10deg) scale(1.3);
+}
+
+/* Main Card */
+.container{
+    width:92%;
+    max-width:900px;
+    margin:40px auto;
+    padding:35px 20px 50px;
+    background:rgba(255,255,255,.20);
+    border:2px solid rgba(255,255,255,.5);
+    border-radius:35px;
+    backdrop-filter:blur(12px);
+    box-shadow:0 20px 50px rgba(190,40,100,.25);
+}
+
+h1{
+    font-size:clamp(38px,8vw,75px);
+    color:#fff;
+    text-shadow:0 5px 15px #d92c79;
+    animation:heartbeat 1.5s infinite;
+}
+
+.my-love{
+    margin-top:10px;
+    font-size:clamp(24px,5vw,42px);
+    color:#fff;
+    font-weight:bold;
+}
+
+.subtitle{
+    margin-top:10px;
+    font-size:18px;
+}
+
+/* Countdown */
+.countdown{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin:35px 0;
+}
+
+.time-box{
+    width:110px;
+    padding:18px 10px;
+    background:rgba(255,255,255,.3);
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(180,30,100,.2);
+}
+
+.time-box span{
+    display:block;
+    font-size:35px;
+    font-weight:bold;
+}
+
+.time-box small{
+    font-size:14px;
+}
+
+/* Bears */
+.bears{
+    display:flex;
+    justify-content:center;
+    align-items:end;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:25px 0;
+}
+
+.bear{
+    font-size:75px;
+    cursor:pointer;
+    transition:.3s;
+    animation:float 3s ease-in-out infinite;
+}
+
+.bear:hover{
+    transform:scale(1.25) rotate(8deg);
+}
+
+/* Surprise Button */
+button{
+    border:none;
+    padding:15px 30px;
+    border-radius:30px;
+    background:#ff3f91;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(180,20,90,.3);
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    background:#e82c7c;
+}
+
+/* Hidden Message */
+#message{
+    display:none;
+    margin:25px auto 0;
+    padding:25px;
+    max-width:650px;
+    background:rgba(255,255,255,.3);
+    border-radius:25px;
+    font-size:20px;
+    line-height:1.7;
+}
+
+/* Floating Hearts */
+.heart{
+    position:fixed;
+    bottom:-30px;
+    font-size:25px;
+    animation:rise 5s linear forwards;
+    pointer-events:none;
+}
+
+/* Animations */
+@keyframes heartbeat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.06);}
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+@keyframes rise{
+    0%{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-100vh) scale(1.8) rotate(360deg);
+        opacity:0;
+    }
+}
+
+@media(max-width:600px){
+    .container{
+        margin:20px auto;
+        padding:25px 12px 40px;
+    }
+
+    .time-box{
+        width:75px;
+        padding:12px 5px;
+    }
+
+    .time-box span{
+        font-size:25px;
+    }
+
+    .bear{
+        font-size:55px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="my-love">💗 MY LOVE 💗</div>
+
+    <h1>Happy Birthday<br>Archita 🎂❤️</h1>
+
+    <p class="subtitle">
+        The countdown to your special day has started... 🥹💕
+    </p>
+
+    <!-- Countdown -->
+    <div class="countdown">
+        <div class="time-box">
+            <span id="days">00</span>
+            <small>Days</small>
+        </div>
+
+        <div class="time-box">
+            <span id="hours">00</span>
+            <small>Hours</small>
+        </div>
+
+        <div class="time-box">
+            <span id="minutes">00</span>
+            <small>Minutes</small>
+        </div>
+
+        <div class="time-box">
+            <span id="seconds">00</span>
+            <small>Seconds</small>
+        </div>
+    </div>
+
+    <!-- Cute Bears -->
+    <div class="bears">
+        <div class="bear" onclick="bearClick(this)">🐼</div>
+        <div class="bear" onclick="bearClick(this)">🧸</div>
+        <div class="bear" onclick="bearClick(this)">🐼</div>
+        <div class="bear" onclick="bearClick(this)">🧸</div>
+        <div class="bear" onclick="bearClick(this)">🐼</div>
+        <div class="bear" onclick="bearClick(this)">🧸</div>
+    </div>
+
+    <button onclick="showSurprise()">
+        💌 Click For Your Surprise 💌
+    </button>
+
+    <div id="message">
+        🌸 Happy Birthday My Love Archita 🌸<br><br>
+
+        You are one of the most beautiful parts of my life. ❤️<br>
+        I hope your smile stays forever and every dream of yours
+        comes true. 🥹💗<br><br>
+
+        No matter what happens, always keep smiling. 🫶🏻<br>
+        You deserve all the happiness in the world. 💕<br><br>
+
+        <b>Happy Birthday, My Love! 🎂🐼❤️</b>
+    </div>
+
+</div>
+
+<script>
+
+/* Countdown to 26 September 2026 */
+const birthday = new Date("September 26, 2026 00:00:00").getTime();
+
+function countdown(){
+
+    const now = new Date().getTime();
+    const distance = birthday - now;
+
+    if(distance <= 0){
+        document.getElementById("days").innerHTML="00";
+        document.getElementById("hours").innerHTML="00";
+        document.getElementById("minutes").innerHTML="00";
+        document.getElementById("seconds").innerHTML="00";
+
+        document.querySelector(".subtitle").innerHTML =
+        "🎉 TODAY IS YOUR SPECIAL DAY! 🎉";
+
+        return;
+    }
+
+    const days = Math.floor(distance/(1000*60*60*24));
+    const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+    const seconds = Math.floor((distance%(1000*60))/1000);
+
+    document.getElementById("days").innerHTML=String(days).padStart(2,"0");
+    document.getElementById("hours").innerHTML=String(hours).padStart(2,"0");
+    document.getElementById("minutes").innerHTML=String(minutes).padStart(2,"0");
+    document.getElementById("seconds").innerHTML=String(seconds).padStart(2,"0");
+}
+
+setInterval(countdown,1000);
+countdown();
+
+
+/* Surprise */
+function showSurprise(){
+
+    const message=document.getElementById("message");
+
+    message.style.display="block";
+
+    for(let i=0;i<30;i++){
+        createHeart();
+    }
+}
+
+
+/* Panda/Teddy Click */
+function bearClick(bear){
+
+    bear.innerHTML="❤️";
+    
+    setTimeout(()=>{
+        bear.innerHTML="🐼";
+    },800);
+
+    for(let i=0;i<8;i++){
+        createHeart();
+    }
+}
+
+
+/* Floating Hearts */
+function createHeart(){
+
+    const heart=document.createElement("div");
+
+    heart.className="heart";
+
+    const hearts=["❤️","💗","💕","💖","💘","💓","💞"];
+
+    heart.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
+
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(3+Math.random()*3)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+
+/* Automatic hearts */
+setInterval(()=>{
+    createHeart();
+},700);
+
+</script>
+
+</body>
+</html>
