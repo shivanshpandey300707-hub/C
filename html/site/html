@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SHIVXX — Dark Dining</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:white;
+    font-family:Poppins,sans-serif;
+    overflow-x:hidden;
+}
+
+/* ===== CURSOR GLOW ===== */
+.cursor{
+    width:20px;
+    height:20px;
+    border:2px solid #ff1e1e;
+    border-radius:50%;
+    position:fixed;
+    pointer-events:none;
+    z-index:9999;
+    transform:translate(-50%,-50%);
+    transition:.08s;
+}
+
+/* ===== NAVBAR ===== */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:22px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,0,0,.15);
+}
+
+.logo{
+    font-family:Cinzel;
+    font-size:30px;
+    font-weight:900;
+    color:#fff;
+    letter-spacing:5px;
+}
+
+.logo span{
+    color:#e50914;
+}
+
+nav ul{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#ff2020;
+}
+
+.reserve{
+    padding:12px 22px;
+    border:1px solid #e50914;
+    color:#fff;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.reserve:hover{
+    background:#e50914;
+    box-shadow:0 0 30px #e50914;
+}
+
+/* ===== HERO ===== */
+.hero{
+    height:100vh;
+    min-height:700px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:0 8%;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at 75% 50%,rgba(180,0,0,.3),transparent 35%),
+    #050505;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:#e50914;
+    filter:blur(180px);
+    opacity:.12;
+    right:5%;
+    animation:pulse 4s infinite alternate;
+}
+
+@keyframes pulse{
+    from{transform:scale(.8)}
+    to{transform:scale(1.2)}
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+}
+
+.small{
+    color:#e50914;
+    letter-spacing:7px;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-family:Cinzel;
+    font-size:clamp(65px,10vw,145px);
+    line-height:.85;
+    letter-spacing:-5px;
+}
+
+.hero h1 span{
+    color:#e50914;
+}
+
+.hero p{
+    margin-top:35px;
+    color:#aaa;
+    max-width:500px;
+    line-height:1.8;
+}
+
+.buttons{
+    margin-top:35px;
+    display:flex;
+    gap:18px;
+}
+
+.btn{
+    padding:16px 30px;
+    text-decoration:none;
+    color:#fff;
+    border:1px solid #e50914;
+    transition:.4s;
+}
+
+.btn.red{
+    background:#e50914;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 40px rgba(229,9,20,.35);
+}
+
+/* ===== FLOATING PLATE ===== */
+.plate{
+    position:absolute;
+    right:5%;
+    width:470px;
+    height:470px;
+    border-radius:50%;
+    border:1px solid rgba(255,0,0,.35);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:rotate 25s linear infinite;
+}
+
+.plate::before{
+    content:"";
+    width:390px;
+    height:390px;
+    border-radius:50%;
+    border:2px solid #222;
+    box-shadow:
+    inset 0 0 50px rgba(255,0,0,.2),
+    0 0 80px rgba(255,0,0,.15);
+}
+
+.plate::after{
+    content:"SHIVXX";
+    position:absolute;
+    color:#e50914;
+    font-family:Cinzel;
+    font-size:55px;
+    letter-spacing:8px;
+    animation:counter 25s linear infinite;
+}
+
+@keyframes rotate{
+    to{transform:rotate(360deg)}
+}
+
+@keyframes counter{
+    to{transform:rotate(-360deg)}
+}
+
+/* ===== MARQUEE ===== */
+.marquee{
+    overflow:hidden;
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+    padding:20px 0;
+    background:#090909;
+}
+
+.track{
+    display:flex;
+    width:max-content;
+    animation:marquee 20s linear infinite;
+}
+
+.track span{
+    font-family:Cinzel;
+    font-size:25px;
+    margin-right:60px;
+    color:#888;
+}
+
+.track b{
+    color:#e50914;
+}
+
+@keyframes marquee{
+    to{transform:translateX(-50%)}
+}
+
+/* ===== SECTION ===== */
+section{
+    padding:120px 8%;
+}
+
+.section-title{
+    font-family:Cinzel;
+    font-size:60px;
+    margin-bottom:60px;
+}
+
+.section-title span{
+    color:#e50914;
+}
+
+/* ===== MENU ===== */
+.menu{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    position:relative;
+    padding:35px;
+    min-height:260px;
+    background:linear-gradient(145deg,#151515,#080808);
+    border:1px solid #222;
+    overflow:hidden;
+    transition:.5s;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    background:#e50914;
+    filter:blur(100px);
+    opacity:0;
+    right:-50px;
+    bottom:-50px;
+    transition:.5s;
+}
+
+.card:hover{
+    transform:translateY(-15px) scale(1.02);
+    border-color:#e50914;
+}
+
+.card:hover::before{
+    opacity:.5;
+}
+
+.number{
+    color:#e50914;
+    font-size:13px;
+}
+
+.card h3{
+    font-family:Cinzel;
+    font-size:27px;
+    margin:25px 0 12px;
+}
+
+.card p{
+    color:#888;
+    line-height:1.7;
+}
+
+.price{
+    display:block;
+    margin-top:25px;
+    font-size:20px;
+    color:#e50914;
+}
+
+/* ===== FEATURE ===== */
+.feature{
+    min-height:600px;
+    display:flex;
+    align-items:center;
+    background:
+    linear-gradient(90deg,#050505 25%,transparent),
+    radial-gradient(circle at 80%,#400000,#050505 50%);
+}
+
+.feature-text{
+    max-width:600px;
+}
+
+.feature-text h2{
+    font-family:Cinzel;
+    font-size:70px;
+}
+
+.feature-text h2 span{
+    color:#e50914;
+}
+
+.feature-text p{
+    color:#999;
+    line-height:2;
+    margin-top:25px;
+}
+
+/* ===== STATS ===== */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    text-align:center;
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+}
+
+.stat{
+    padding:50px 20px;
+    border-right:1px solid #222;
+}
+
+.stat h2{
+    color:#e50914;
+    font-size:45px;
+}
+
+.stat p{
+    color:#777;
+}
+
+/* ===== RESERVATION ===== */
+.reservation{
+    text-align:center;
+}
+
+.reservation h2{
+    font-family:Cinzel;
+    font-size:70px;
+}
+
+.reservation h2 span{
+    color:#e50914;
+}
+
+.form{
+    max-width:700px;
+    margin:50px auto;
+    display:grid;
+    gap:15px;
+}
+
+input,select{
+    background:#101010;
+    color:white;
+    border:1px solid #292929;
+    padding:18px;
+    outline:none;
+}
+
+input:focus,select:focus{
+    border-color:#e50914;
+}
+
+button{
+    background:#e50914;
+    color:white;
+    border:0;
+    padding:18px;
+    cursor:pointer;
+    font-weight:bold;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+button:hover{
+    box-shadow:0 0 30px rgba(229,9,20,.5);
+    transform:translateY(-3px);
+}
+
+/* ===== FOOTER ===== */
+footer{
+    padding:60px 8%;
+    border-top:1px solid #222;
+    display:flex;
+    justify-content:space-between;
+    color:#666;
+}
+
+footer strong{
+    color:#e50914;
+}
+
+/* ===== REVEAL ANIMATION ===== */
+.reveal{
+    opacity:0;
+    transform:translateY(80px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:900px){
+
+    nav ul{
+        display:none;
+    }
+
+    .hero{
+        padding:0 7%;
+    }
+
+    .plate{
+        opacity:.2;
+        right:-200px;
+    }
+
+    .menu{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .feature-text h2,
+    .reservation h2{
+        font-size:45px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cursor"></div>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">SHIV<span>XX</span></div>
+
+    <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#menu">MENU</a></li>
+        <li><a href="#story">STORY</a></li>
+        <li><a href="#reserve">RESERVE</a></li>
+    </ul>
+
+    <a href="#reserve" class="reserve">BOOK TABLE</a>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-content reveal">
+
+        <div class="small">EST. 2026 — DELHI NCR</div>
+
+        <h1>
+            SHIV<span>XX</span>
+        </h1>
+
+        <p>
+            A dark dining experience where fire,
+            flavour and luxury meet.
+            Welcome to the world of SHIVXX.
+        </p>
+
+        <div class="buttons">
+            <a href="#menu" class="btn red">EXPLORE MENU</a>
+            <a href="#reserve" class="btn">RESERVE TABLE</a>
+        </div>
+
+    </div>
+
+    <div class="plate"></div>
+
+</section>
+
+
+<!-- MARQUEE -->
+<div class="marquee">
+    <div class="track">
+        <span>SHIVXX <b>•</b> DARK DINING</span>
+        <span>SHIVXX <b>•</b> DARK DINING</span>
+        <span>SHIVXX <b>•</b> DARK DINING</span>
+        <span>SHIVXX <b>•</b> DARK DINING</span>
+        <span>SHIVXX <b>•</b> DARK DINING</span>
+    </div>
+</div>
+
+
+<!-- MENU -->
+<section id="menu">
+
+    <h2 class="section-title reveal">
+        SIGNATURE <span>MENU</span>
+    </h2>
+
+    <div class="menu">
+
+        <div class="card reveal">
+            <span class="number">01 / STARTER</span>
+            <h3>Fire Chicken</h3>
+            <p>
+                Charred chicken, smoked chilli,
+                garlic and SHIVXX secret sauce.
+            </p>
+            <span class="price">₹599</span>
+        </div>
+
+        <div class="card reveal">
+            <span class="number">02 / MAIN COURSE</span>
+            <h3>Black Truffle Pasta</h3>
+            <p>
+                Handmade pasta with creamy
+                black truffle parmesan sauce.
+            </p>
+            <span class="price">₹799</span>
+        </div>
+
+        <div class="card reveal">
+            <span class="number">03 / SIGNATURE</span>
+            <h3>SHIVXX Steak</h3>
+            <p>
+                Premium grilled steak with
+                roasted garlic butter.
+            </p>
+            <span class="price">₹1499</span>
+        </div>
+
+        <div class="card reveal">
+            <span class="number">04 / DESSERT</span>
+            <h3>Dark Chocolate</h3>
+            <p>
+                72% dark chocolate mousse
+                with molten centre.
+            </p>
+            <span class="price">₹399</span>
+        </div>
+
+        <div class="card reveal">
+            <span class="number">05 / DRINK</span>
+            <h3>Red Eclipse</h3>
+            <p>
+                A signature crimson mocktail
+                with citrus and berries.
+            </p>
+            <span class="price">₹299</span>
+        </div>
+
+        <div class="card reveal">
+            <span class="number">06 / SPECIAL</span>
+            <h3>Chef's Table</h3>
+            <p>
+                A specially curated multi-course
+                SHIVXX dining experience.
+            </p>
+            <span class="price">₹2499</span>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- STORY -->
+<section class="feature" id="story">
+
+    <div class="feature-text reveal">
+
+        <div class="small">THE SHIVXX EXPERIENCE</div>
+
+        <h2>
+            NOT JUST<br>
+            <span>FOOD.</span><br>
+            AN ATTITUDE.
+        </h2>
+
+        <p>
+            SHIVXX was created for people who don't
+            want ordinary. Every plate is designed with
+            fire, precision and attitude.
+        </p>
+
+        <a href="#reserve" class="btn red"
+           style="display:inline-block;margin-top:30px;">
+           EXPERIENCE SHIVXX
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+<section style="padding:0 8%;">
+
+    <div class="stats">
+
+        <div class="stat reveal">
+            <h2>25+</h2>
+            <p>SIGNATURE DISHES</p>
+        </div>
+
+        <div class="stat reveal">
+            <h2>4.9</h2>
+            <p>GUEST RATING</p>
+        </div>
+
+        <div class="stat reveal">
+            <h2>7</h2>
+            <p>DAYS OPEN</p>
+        </div>
+
+        <div class="stat reveal">
+            <h2>∞</h2>
+            <p>EXPERIENCE</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RESERVATION -->
+<section class="reservation" id="reserve">
+
+    <div class="small reveal">
+        YOUR TABLE AWAITS
+    </div>
+
+    <h2 class="reveal">
+        RESERVE <span>SHIVXX</span>
+    </h2>
+
+    <form class="form reveal" id="booking">
+
+        <input type="text"
+               placeholder="YOUR NAME"
+               required>
+
+        <input type="tel"
+               placeholder="PHONE NUMBER"
+               required>
+
+        <input type="date"
+               required>
+
+        <select required>
+            <option value="">SELECT GUESTS</option>
+            <option>2 GUESTS</option>
+            <option>3 GUESTS</option>
+            <option>4 GUESTS</option>
+            <option>5+ GUESTS</option>
+        </select>
+
+        <button type="submit">
+            CONFIRM RESERVATION
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+    <div>
+        © 2026 <strong>SHIVXX</strong>
+    </div>
+
+    <div>
+        DARK • BOLD • UNFORGETTABLE
+    </div>
+</footer>
+
+
+<script>
+
+/* ===== CURSOR ===== */
+
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove",(e)=>{
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
+
+
+/* ===== SCROLL REVEAL ===== */
+
+const reveals = document.querySelectorAll(".reveal");
+
+function reveal(){
+
+    reveals.forEach(element => {
+
+        const windowHeight =
+            window.innerHeight;
+
+        const elementTop =
+            element.getBoundingClientRect().top;
+
+        if(elementTop < windowHeight - 100){
+            element.classList.add("active");
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll",reveal);
+
+reveal();
+
+
+/* ===== BOOKING ===== */
+
+document.getElementById("booking")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    alert(
+        "🔥 SHIVXX\n\n" +
+        "Your reservation request has been received."
+    );
+
+    this.reset();
+
+});
+
+
+/* ===== PARALLAX ===== */
+
+document.addEventListener("mousemove",(e)=>{
+
+    const plate =
+        document.querySelector(".plate");
+
+    let x =
+        (window.innerWidth/2 - e.clientX) / 40;
+
+    let y =
+        (window.innerHeight/2 - e.clientY) / 40;
+
+    plate.style.marginLeft = x + "px";
+    plate.style.marginTop = y + "px";
+
+});
+
+</script>
+
+</body>
+</html>
