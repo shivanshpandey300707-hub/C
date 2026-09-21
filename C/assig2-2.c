@@ -3,7 +3,7 @@
 int main(void)
 {
 	int a, b;
-
+	printf("Enter two integers (a and b): ");
 	scanf("%d %d", &a, &b);
 
 	printf("Logical AND (a && b): %d\n", a && b);
