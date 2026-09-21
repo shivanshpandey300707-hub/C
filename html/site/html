@@ -622,6 +622,177 @@ footer strong{
             <span class="price">₹2499</span>
         </div>
 
+        <div class="card reveal">
+            <span class="number">07 / INDIAN</span>
+            <h3>Butter Chicken</h3>
+            <p>Tandoori chicken in a rich tomato, butter and cream gravy.</p>
+            <span class="price">₹649</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">08 / INDIAN</span>
+            <h3>Paneer Tikka</h3>
+            <p>Smoky cottage cheese with peppers and aromatic spices.</p>
+            <span class="price">₹499</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">09 / INDIAN</span>
+            <h3>Dal Makhani</h3>
+            <p>Slow-cooked black lentils finished with butter and cream.</p>
+            <span class="price">₹399</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">10 / INDIAN</span>
+            <h3>Rogan Josh</h3>
+            <p>Tender lamb simmered in a fragrant Kashmiri spice gravy.</p>
+            <span class="price">₹749</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">11 / INDIAN</span>
+            <h3>Chole Bhature</h3>
+            <p>Spiced chickpeas served with fluffy fried bhature.</p>
+            <span class="price">₹349</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">12 / INDIAN</span>
+            <h3>Palak Paneer</h3>
+            <p>Soft paneer in a silky spinach and garlic sauce.</p>
+            <span class="price">₹449</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">13 / INDIAN</span>
+            <h3>Chicken Biryani</h3>
+            <p>Fragrant basmati rice layered with spiced chicken.</p>
+            <span class="price">₹599</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">14 / INDIAN</span>
+            <h3>Veg Biryani</h3>
+            <p>Seasonal vegetables and saffron rice cooked dum-style.</p>
+            <span class="price">₹449</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">15 / INDIAN</span>
+            <h3>Amritsari Fish</h3>
+            <p>Crisp gram-flour battered fish with mint chutney.</p>
+            <span class="price">₹649</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">16 / INDIAN</span>
+            <h3>Malai Kofta</h3>
+            <p>Delicate paneer dumplings in a creamy cashew gravy.</p>
+            <span class="price">₹499</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">17 / INDIAN</span>
+            <h3>Seekh Kebab</h3>
+            <p>Char-grilled minced lamb kebabs with smoked spices.</p>
+            <span class="price">₹599</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">18 / INDIAN</span>
+            <h3>Garlic Naan</h3>
+            <p>Clay-oven naan brushed with garlic butter and herbs.</p>
+            <span class="price">₹149</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">19 / INDIAN</span>
+            <h3>Rajma Chawal</h3>
+            <p>Punjabi kidney bean curry with steamed basmati rice.</p>
+            <span class="price">₹349</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">20 / INDIAN</span>
+            <h3>Baingan Bharta</h3>
+            <p>Fire-roasted eggplant blended with onion and tomato.</p>
+            <span class="price">₹349</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">21 / INDIAN</span>
+            <h3>Chicken Tikka</h3>
+            <p>Yogurt-marinated chicken grilled over open flame.</p>
+            <span class="price">₹549</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">22 / INDIAN</span>
+            <h3>Bhindi Masala</h3>
+            <p>Stir-fried okra with onion, tomato and warming spices.</p>
+            <span class="price">₹329</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">23 / INDIAN</span>
+            <h3>Fish Curry</h3>
+            <p>Coastal fish curry with coconut, tamarind and chilli.</p>
+            <span class="price">₹599</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">24 / INDIAN</span>
+            <h3>Aloo Paratha</h3>
+            <p>Stuffed potato flatbread with yogurt and pickle.</p>
+            <span class="price">₹299</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">25 / INDIAN</span>
+            <h3>Gulab Jamun</h3>
+            <p>Warm milk dumplings soaked in cardamom sugar syrup.</p>
+            <span class="price">₹249</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">26 / INDIAN</span>
+            <h3>Gajar Halwa</h3>
+            <p>Slow-cooked carrot pudding with nuts and saffron.</p>
+            <span class="price">₹249</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">27 / INDIAN</span>
+            <h3>Kulfi Falooda</h3>
+            <p>Traditional kulfi with vermicelli, basil seeds and rose.</p>
+            <span class="price">₹299</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">28 / INDIAN</span>
+            <h3>Papdi Chaat</h3>
+            <p>Crisp papdi topped with yogurt, chutneys and sev.</p>
+            <span class="price">₹299</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">29 / INDIAN</span>
+            <h3>Pav Bhaji</h3>
+            <p>Spiced vegetable mash served with toasted buttered pav.</p>
+            <span class="price">₹349</span>
+        </div>
+        <div class="card reveal">
+            <span class="number">30 / INDIAN</span>
+            <h3>Masala Chai</h3>
+            <p>Black tea brewed with milk, ginger and whole spices.</p>
+            <span class="price">₹149</span>
+        </div>
+
+        <div class="card reveal">
+            <span class="number">31 / SOUTH INDIAN</span>
+            <h3>Masala Dosa</h3>
+            <p>Crisp rice crepe filled with spiced potato masala.</p>
+            <span class="price">₹299</span>
+        </div>
+        <div class="card reveal"><span class="number">32 / SOUTH INDIAN</span><h3>Plain Dosa</h3><p>Golden crisp fermented rice and lentil crepe.</p><span class="price">₹249</span></div>
+        <div class="card reveal"><span class="number">33 / SOUTH INDIAN</span><h3>Rava Dosa</h3><p>Thin, lacy semolina dosa with curry leaves.</p><span class="price">₹299</span></div>
+        <div class="card reveal"><span class="number">34 / SOUTH INDIAN</span><h3>Set Dosa</h3><p>Soft, fluffy dosas served with chutney and sambar.</p><span class="price">₹279</span></div>
+        <div class="card reveal"><span class="number">35 / SOUTH INDIAN</span><h3>Idli Sambar</h3><p>Steamed rice cakes with lentil sambar.</p><span class="price">₹249</span></div>
+        <div class="card reveal"><span class="number">36 / SOUTH INDIAN</span><h3>Medu Vada</h3><p>Crisp lentil doughnuts with coconut chutney.</p><span class="price">₹249</span></div>
+        <div class="card reveal"><span class="number">37 / SOUTH INDIAN</span><h3>Uttapam</h3><p>Thick rice pancake topped with vegetables and herbs.</p><span class="price">₹299</span></div>
+        <div class="card reveal"><span class="number">38 / SOUTH INDIAN</span><h3>Ven Pongal</h3><p>Comforting rice and moong dal tempered with spices.</p><span class="price">₹279</span></div>
+        <div class="card reveal"><span class="number">39 / SOUTH INDIAN</span><h3>Bisibele Bath</h3><p>Karnataka-style rice, lentils and vegetables.</p><span class="price">₹329</span></div>
+        <div class="card reveal"><span class="number">40 / SOUTH INDIAN</span><h3>Curd Rice</h3><p>Cooling yogurt rice finished with mustard tempering.</p><span class="price">₹249</span></div>
+        <div class="card reveal"><span class="number">41 / SOUTH INDIAN</span><h3>Lemon Rice</h3><p>Tangy rice with peanuts, curry leaves and chilli.</p><span class="price">₹249</span></div>
+        <div class="card reveal"><span class="number">42 / SOUTH INDIAN</span><h3>Tamarind Rice</h3><p>Spiced puliyodarai rice with roasted peanuts.</p><span class="price">₹269</span></div>
+        <div class="card reveal"><span class="number">43 / SOUTH INDIAN</span><h3>Appam Stew</h3><p>Soft lacy appam with fragrant vegetable stew.</p><span class="price">₹399</span></div>
+        <div class="card reveal"><span class="number">44 / SOUTH INDIAN</span><h3>Idiyappam</h3><p>Delicate string hoppers served with coconut milk.</p><span class="price">₹349</span></div>
+        <div class="card reveal"><span class="number">45 / SOUTH INDIAN</span><h3>Kerala Parotta</h3><p>Flaky layered flatbread with vegetable kurma.</p><span class="price">₹349</span></div>
+        <div class="card reveal"><span class="number">46 / SOUTH INDIAN</span><h3>Chettinad Chicken</h3><p>Bold Tamil-style chicken with roasted spices.</p><span class="price">₹599</span></div>
+        <div class="card reveal"><span class="number">47 / SOUTH INDIAN</span><h3>Andhra Fish Fry</h3><p>Spicy pan-fried fish with curry leaves.</p><span class="price">₹649</span></div>
+        <div class="card reveal"><span class="number">48 / SOUTH INDIAN</span><h3>Avial</h3><p>Mixed vegetables cooked with coconut and yogurt.</p><span class="price">₹349</span></div>
+        <div class="card reveal"><span class="number">49 / SOUTH INDIAN</span><h3>Mysore Pak</h3><p>Rich melt-in-the-mouth gram flour sweet.</p><span class="price">₹249</span></div>
+        <div class="card reveal"><span class="number">50 / SOUTH INDIAN</span><h3>Filter Coffee</h3><p>Strong South Indian coffee with frothy milk.</p><span class="price">₹149</span></div>
+
     </div>
 </section>
 
@@ -699,17 +870,20 @@ footer strong{
     <form class="form reveal" id="booking">
 
         <input type="text"
+             name="name"
                placeholder="YOUR NAME"
                required>
 
         <input type="tel"
+             name="phone"
                placeholder="PHONE NUMBER"
                required>
 
         <input type="date"
+             name="date"
                required>
 
-        <select required>
+         <select name="guests" required>
             <option value="">SELECT GUESTS</option>
             <option>2 GUESTS</option>
             <option>3 GUESTS</option>
@@ -780,9 +954,36 @@ reveal();
 /* ===== BOOKING ===== */
 
 document.getElementById("booking")
-.addEventListener("submit",function(e){
+.addEventListener("submit",async function(e){
 
     e.preventDefault();
+
+    const formData = new FormData(this);
+    const reservation = {
+        id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
+        name: formData.get("name"),
+        phone: formData.get("phone"),
+        date: formData.get("date"),
+        guests: formData.get("guests"),
+        createdAt: new Date().toISOString()
+    };
+
+    // Send to the backend when available.
+    try {
+        const response = await fetch("/api/reservations", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(reservation)
+        });
+        if (!response.ok) throw new Error("Storage request failed");
+    } catch (error) {
+        // Temporary browser storage keeps bookings when the API is offline.
+        const saved = JSON.parse(
+            localStorage.getItem("shivxx_reservations") || "[]"
+        );
+        saved.push(reservation);
+        localStorage.setItem("shivxx_reservations", JSON.stringify(saved));
+    }
 
     alert(
         "🔥 SHIVXX\n\n" +
