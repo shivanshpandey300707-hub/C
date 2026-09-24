@@ -1,15 +1,14 @@
-CSS = """
-body {
-	min-height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: var(--bg);
-}
+import turtle, colorsys
 
-.toggle-scene {
-	overflow: visible !important;
-	height: 50vmin;
-	position: absolute;
-}
-"""
+screen = turtle.Screen()
+screen.bgcolor("black")
+t = turtle.Turtle()
+t.speed(0)
+t.hideturtle()
+
+for i in range(150):
+    t.pencolor(colorsys.hsv_to_rgb(0.12 - i / 150 * 0.12, 1, 1))
+
+    t.forward(i * 2.8)
+    t.right(165)
+turtle.done()
