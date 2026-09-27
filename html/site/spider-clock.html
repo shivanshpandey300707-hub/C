@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Spider Clock</title>
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 30%, #b5651d 0%, #7a3d0f 60%, #5a2c0a 100%);
+    overflow: hidden;
+    font-family: 'Georgia', serif;
+  }
+
+  .clock-face {
+    position: relative;
+    width: min(90vmin, 500px);
+    height: min(90vmin, 500px);
+  }
+
+  .cobweb {
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    opacity: 0.15;
+  }
+
+  .number {
+    position: absolute;
+    color: rgba(255, 235, 200, 0.35);
+    font-size: 2rem;
+    width: 2rem;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+
+  /* the static faint thread, drawn once from top edge to center */
+  .thread {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 50%;
+    background: rgba(255,255,255,0.6);
+  }
+
+  /* every hand is a full-height line pivoting around the exact center of the face */
+  .center-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    transform-origin: 50% 50%;
+  }
+
+  #second-hand { z-index: 3; }
+  #minute-hand {
+    background: rgba(255,255,255,0.9);   /* white = minute hand */
+    width: 3px;
+    height: 76%;
+    top: 12%;
+    z-index: 2;
+  }
+  #hour-hand {
+    background: rgba(255, 195, 110, 0.95);  /* gold = hour hand */
+    width: 4px;
+    height: 52%;
+    top: 24%;
+    z-index: 2;
+  }
+
+  /* spider sits exactly at the pivot point (center of the clock face) and stays fixed */
+  .spider {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90px;
+    height: 90px;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+  }
+</style>
+</head>
+<body>
+
+<div class="clock-face" id="clockFace">
+  <!-- cobwebs (decorative, scattered) -->
+  <svg class="cobweb" style="top:20%; left:10%;" viewBox="0 0 100 100"><path d="M50 5 L50 95 M5 50 L95 50 M15 15 L85 85 M85 15 L15 85 M50 5 L20 20 L10 50 L20 80 L50 95 L80 80 L90 50 L80 20 Z M50 20 L30 30 L25 50 L30 70 L50 80 L70 70 L75 50 L70 30 Z" stroke="#ffe8c8" fill="none" stroke-width="1"/></svg>
+  <svg class="cobweb" style="top:55%; left:55%;" viewBox="0 0 100 100"><path d="M50 5 L50 95 M5 50 L95 50 M15 15 L85 85 M85 15 L15 85 M50 5 L20 20 L10 50 L20 80 L50 95 L80 80 L90 50 L80 20 Z M50 20 L30 30 L25 50 L30 70 L50 80 L70 70 L75 50 L70 30 Z" stroke="#ffe8c8" fill="none" stroke-width="1"/></svg>
+  <svg class="cobweb" style="top:10%; left:60%;" viewBox="0 0 100 100"><path d="M50 5 L50 95 M5 50 L95 50 M15 15 L85 85 M85 15 L15 85 M50 5 L20 20 L10 50 L20 80 L50 95 L80 80 L90 50 L80 20 Z M50 20 L30 30 L25 50 L30 70 L50 80 L70 70 L75 50 L70 30 Z" stroke="#ffe8c8" fill="none" stroke-width="1"/></svg>
+  <svg class="cobweb" style="top:60%; left:5%;" viewBox="0 0 100 100"><path d="M50 5 L50 95 M5 50 L95 50 M15 15 L85 85 M85 15 L15 85 M50 5 L20 20 L10 50 L20 80 L50 95 L80 80 L90 50 L80 20 Z M50 20 L30 30 L25 50 L30 70 L50 80 L70 70 L75 50 L70 30 Z" stroke="#ffe8c8" fill="none" stroke-width="1"/></svg>
+
+  <!-- numbers -->
+  <div class="number" id="numbers"></div>
+
+  <!-- static thread the spider hangs from (top edge down to center) -->
+  <div class="thread"></div>
+
+  <!-- hour / minute hands -->
+  <div class="center-line" id="hour-hand"></div>
+  <div class="center-line" id="minute-hand"></div>
+
+  <!-- thin rotating seconds needle, continuously moving -->
+  <div class="center-line" id="second-hand" style="background: rgba(230, 70, 60, 0.95); width:1.5px;"></div>
+
+  <!-- spider stays fixed at the center, does not rotate -->
+  <svg class="spider" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="55" rx="14" ry="20" fill="#fff5e6"/>
+    <circle cx="50" cy="30" r="9" fill="#fff5e6"/>
+    <g stroke="#fff5e6" stroke-width="3" fill="none" stroke-linecap="round">
+      <path d="M38 40 L15 25 M38 48 L8 45 M38 56 L12 65 M38 64 L18 82"/>
+      <path d="M62 40 L85 25 M62 48 L92 45 M62 56 L88 65 M62 64 L82 82"/>
+    </g>
+  </svg>
+</div>
+
+<script>
+  // Place clock numbers 1-12 around the face
+  const face = document.getElementById('clockFace');
+  for (let i = 1; i <= 12; i++) {
+    const angle = (i * 30 - 90) * Math.PI / 180;
+    const radius = 46; // percent of face size
+    const x = 50 + radius * Math.cos(angle);
+    const y = 50 + radius * Math.sin(angle);
+    const el = document.createElement('div');
+    el.className = 'number';
+    el.textContent = i;
+    el.style.left = x + '%';
+    el.style.top = y + '%';
+    face.appendChild(el);
+  }
+
+  const secondHand = document.getElementById('second-hand');
+  const minuteHand = document.getElementById('minute-hand');
+  const hourHand = document.getElementById('hour-hand');
+
+  function tick() {
+    const now = new Date();
+    const seconds = now.getSeconds() + now.getMilliseconds() / 1000;
+    const minutes = now.getMinutes() + seconds / 60;
+    const hours = (now.getHours() % 12) + minutes / 60;
+
+    secondHand.style.transform = `rotate(${seconds * 6}deg)`;
+    minuteHand.style.transform = `rotate(${minutes * 6}deg)`;
+    hourHand.style.transform = `rotate(${hours * 30}deg)`;
+
+    requestAnimationFrame(tick);
+  }
+  tick();
+</script>
+
+</body>
+</html>
