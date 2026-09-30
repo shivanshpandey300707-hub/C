@@ -20,7 +20,3 @@ int main(void)
 	show_storage_classes();
 	return 0;
 }
-
-
-
-
