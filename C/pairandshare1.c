@@ -7,6 +7,6 @@ int fact(int n) {
 }
 
 int main() {
-    printf("%d\n", fact(4));  
+    printf("%d\n", fact(3));  
     return 0;
 }
